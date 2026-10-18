@@ -1,10 +1,10 @@
 ---
-import { waLink } from '../../data/site';
+import { site, waLink } from '../../data/site';
 ---
 <section class="section section--dark cta"><div class="container cta__in">
  <div class="cta__content"><p class="eyebrow">Conversa comercial</p><h2>Tem uma necessidade de inox numa unidade comercial?</h2>
   <p class="lead">Envie a aplicação, a localização e as referências disponíveis. Converse com a JS Inox para confirmar se o pedido se enquadra no escopo atendido.</p>
-  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Iniciar conversa comercial</a><a class="btn btn--line" href="#como-funciona">Ver como iniciar</a></div></div>
+  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">{site.ctaLabel}</a><a class="btn btn--line" href="#como-funciona">Ver como iniciar</a></div></div>
  <div class="cta__signature" aria-hidden="true"><span class="cta__signature-mark">JS</span><span class="cta__signature-line"></span><small>JS INOX<br />Fortaleza — CE</small></div>
 </div></section>
 <style>

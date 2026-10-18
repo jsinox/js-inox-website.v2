@@ -1,11 +1,11 @@
 ---
-import { waLink } from '../../data/site';
+import { site, waLink } from '../../data/site';
 const itens = ['Empresa e nome do contacto', 'Município, unidade e aplicação', 'Quantidade e objetivo do pedido', 'Medidas, desenho, fotos ou requisitos disponíveis', 'Data ou janela desejada, se houver'];
 ---
 <section id="preparar" class="section prep-section"><div class="container prep">
  <div class="prep__content"><p class="eyebrow">Prepare a conversa</p><h2>Tem uma necessidade de inox numa unidade comercial?</h2>
   <p class="lead">Partilhe a aplicação, a localização e as referências disponíveis. A disponibilidade e o enquadramento do pedido devem ser confirmados com a JS Inox.</p>
-  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Iniciar conversa comercial</a></div>
+  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">{site.ctaLabel}</a></div>
   <p class="demo"><span aria-hidden="true">i</span>O botão abre o WhatsApp com uma mensagem inicial. Anexos e dados adicionais podem ser enviados diretamente pelo canal, se necessário.</p></div>
  <aside class="prep__aside" aria-label="Informações para preparar"><p class="prep__kicker">Para facilitar a conversa</p><ul class="prep__list">{itens.map((item, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{item}</li>)}</ul></aside>
 </div></section>

@@ -1,5 +1,5 @@
 ---
-import { nav, waLink } from '../../data/site';
+import { nav, site, waLink } from '../../data/site';
 ---
 <header class="hd">
  <div class="container hd__in">
@@ -7,7 +7,7 @@ import { nav, waLink } from '../../data/site';
   <button class="hd__toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="menu"><span>Menu</span><span class="hd__icon" aria-hidden="true"><i></i><i></i></span></button>
   <nav id="menu" class="hd__nav" aria-label="Principal">
    <ul>{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
-   <a class="btn btn--red hd__cta" href={waLink} target="_blank" rel="noopener">Iniciar conversa</a>
+   <a class="btn btn--red hd__cta" href={waLink} target="_blank" rel="noopener">{site.ctaLabel}</a>
   </nav>
  </div>
 </header>

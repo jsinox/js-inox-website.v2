@@ -1,5 +1,5 @@
 ---
-import { waLink, segments } from '../../data/site';
+import { site, waLink, segments } from '../../data/site';
 ---
 <section id="topo" class="hero">
  <div class="hero__ambient" aria-hidden="true"></div>
@@ -8,7 +8,7 @@ import { waLink, segments } from '../../data/site';
    <p class="eyebrow">JS Inox · conversa comercial B2B</p>
    <h1>Inox para espaços comerciais, <span>começando pelo escopo certo.</span></h1>
    <p class="lead">Conte-nos o que a sua operação precisa. Fale com a JS Inox para confirmar se a aplicação, a categoria e o local estão dentro do escopo atendido.</p>
-   <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Conversar sobre um projeto</a><a class="btn btn--line" href="#preparar">Ver informações para o pedido</a></div>
+   <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">{site.ctaLabel}</a><a class="btn btn--line" href="#preparar">Ver informações para o pedido</a></div>
    <p class="hero__micro"><span aria-hidden="true">i</span>Para iniciar a conversa, tenha em mãos a aplicação, município/unidade, quantidade e, se possível, medidas, desenho ou fotos de referência.</p>
   </div>
   <figure class="hero__vis">

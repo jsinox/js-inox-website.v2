@@ -1,4 +1,4 @@
-export const site = { name: 'JS INOX', city: 'Fortaleza — CE', ctaLabel: 'Conversar sobre uma necessidade', locationUrl: 'https://share.google/u4KL8rQyYhRSI8BYj' };
+export const site = { name: 'JS INOX', city: 'Fortaleza — CE', ctaLabel: 'Solicitar orçamento', locationUrl: 'https://share.google/u4KL8rQyYhRSI8BYj' };
 export const nav = [
   { label: 'Sobre a necessidade', href: '#sobre' },
   { label: 'Aplicações', href: '#solucoes' },
@@ -48,6 +48,6 @@ export const faq = [
 // Número pendente de confirmação; manter como contacto provisório até validação pela empresa.
 export const whatsapp = {
   number: '558589896928', display: '(85) 8989-6928',
-  message: 'Olá, gostaria de conversar sobre uma necessidade de inox para uma área comercial.\nEmpresa:\nNome e contacto:\nMunicípio e unidade:\nAplicação e quantidade aproximada:\nMedidas, desenho ou fotos (se disponíveis):\nPrazo ou janela desejada:',
+  message: 'Olá, vim pelo site e gostaria de fazer um orçamento.\nEmpresa:\nNome e contacto:\nMunicípio e unidade:\nAplicação e quantidade aproximada:\nMedidas, desenho ou fotos (se disponíveis):\nPrazo ou janela desejada:',
 };
 export const waLink = `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(whatsapp.message)}`;
