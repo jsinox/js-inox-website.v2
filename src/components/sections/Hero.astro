@@ -1,25 +1,44 @@
 ---
 import { waLink, segments } from '../../data/site';
 ---
-<section id="topo" class="hero"><div class="container hero__in">
- <div>
-  <p class="eyebrow">JS Inox · conversa comercial B2B</p>
-  <h1>Inox para espaços comerciais, começando pelo escopo certo.</h1>
-  <p class="lead">Conte-nos o que a sua operação precisa. Fale com a JS Inox para confirmar se a aplicação, a categoria e o local estão dentro do escopo atendido.</p>
-  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Conversar sobre um projeto</a><a class="btn btn--line" href="#preparar">Ver informações para o pedido</a></div>
-  <p class="hero__micro">Para iniciar a conversa, tenha em mãos a aplicação, município/unidade, quantidade e, se possível, medidas, desenho ou fotos de referência.</p>
+<section id="topo" class="hero">
+ <div class="hero__ambient" aria-hidden="true"></div>
+ <div class="container hero__in">
+  <div class="hero__copy">
+   <p class="eyebrow">JS Inox · conversa comercial B2B</p>
+   <h1>Inox para espaços comerciais, <span>começando pelo escopo certo.</span></h1>
+   <p class="lead">Conte-nos o que a sua operação precisa. Fale com a JS Inox para confirmar se a aplicação, a categoria e o local estão dentro do escopo atendido.</p>
+   <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Conversar sobre um projeto</a><a class="btn btn--line" href="#preparar">Ver informações para o pedido</a></div>
+   <p class="hero__micro"><span aria-hidden="true">i</span>Para iniciar a conversa, tenha em mãos a aplicação, município/unidade, quantidade e, se possível, medidas, desenho ou fotos de referência.</p>
+  </div>
+  <figure class="hero__vis">
+   <div class="hero__frame"><img src="/images/expositor-escalonado.webp" width="900" height="1200" alt="Imagem de referência de expositor escalonado em aço inox" fetchpriority="high" decoding="async" /><span class="hero__tag"><i aria-hidden="true"></i>Referência visual</span></div>
+   <figcaption><span class="hero__caption-mark" aria-hidden="true"></span><span>Peça em aço inox</span><small>Imagem de referência</small></figcaption>
+  </figure>
  </div>
- <figure class="hero__vis"><img src="/images/expositor-escalonado.webp" width="900" height="1200" alt="Imagem de referência de expositor escalonado em aço inox" fetchpriority="high" /></figure>
-</div>
-<div class="container"><ul class="strip" aria-label="Públicos prioritários"><li class="strip__k">Foco comercial</li>{segments.map((s) => <li>{s.title}</li>)}</ul></div></section>
+ <div class="container"><ul class="strip" aria-label="Públicos prioritários"><li class="strip__k">Foco comercial</li>{segments.map((segment) => <li>{segment.title}</li>)}</ul></div>
+</section>
 <style>
-.hero{background:var(--black) repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 96px);color:#fff;padding-top:clamp(2.5rem,7vw,5.5rem)}
-.hero h1{color:#fff;max-width:14ch;font-size:clamp(2.5rem,4.6vw,4.25rem)}.hero .btn--line{color:#fff;border-color:#6b7178}.hero .btn--line:hover{border-color:#fff}.hero .lead{color:#C9CDD1;font-size:1.1875rem}.hero__micro{color:#C9CDD1;font-size:.9rem;max-width:58ch;margin-top:1.25rem}
-.hero__in{display:grid;gap:2.5rem;align-items:center}
-.hero__vis{margin:0;position:relative;max-width:26rem;width:100%;justify-self:center;aspect-ratio:4/5;clip-path:polygon(0 0,calc(100% - 40px) 0,100% 40px,100% 100%,0 100%);border:1px solid #3a3f45}
-.hero__vis img{width:100%;height:100%;object-fit:cover}
-.hero__vis::after{content:"";position:absolute;left:0;bottom:0;width:40%;height:4px;background:var(--red)}
-.strip{list-style:none;margin:clamp(2.5rem,6vw,4rem) 0 0;padding:1.25rem 0;border-top:1px solid #34383d;display:flex;flex-wrap:wrap;gap:.75rem 2rem;font:600 .8125rem var(--font-head);letter-spacing:.08em;text-transform:uppercase;color:#C9CDD1}
-.strip li:not(.strip__k)::before{content:"";display:inline-block;width:.45rem;height:.45rem;background:var(--red);margin-right:.6rem}.strip__k{color:#9aa0a6}
-@media(min-width:900px){.hero__in{grid-template-columns:1.15fr .85fr}.hero__vis{justify-self:end;max-width:28rem}}
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(4rem,8vw,7.75rem) 0 2.25rem;color:#fff;background:radial-gradient(ellipse at 78% 42%,rgba(77,82,85,.28),transparent 38%),linear-gradient(115deg,#141515 0%,#1D2022 54%,#131414 100%)}
+.hero::before{position:absolute;z-index:-1;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:84px 84px;mask-image:linear-gradient(90deg,transparent,#000 45%,#000);content:'';opacity:.28}
+.hero__ambient{position:absolute;z-index:-1;top:15%;right:-16rem;width:42rem;height:42rem;border-radius:50%;background:radial-gradient(circle,rgba(206,5,6,.12),transparent 68%);filter:blur(22px);pointer-events:none}
+.hero__in{display:grid;align-items:center;gap:clamp(2.75rem,7vw,6rem)}
+.hero h1{max-width:15ch;color:#fff;font-size:clamp(3rem,5.4vw,5.35rem);line-height:1.02;letter-spacing:-.065em}
+.hero h1 span{display:block;margin-top:.12em;color:#C9CED0}
+.hero .lead{max-width:49ch;margin-top:1.5rem;color:#D1D5D6;font-size:clamp(1.02rem,1.25vw,1.2rem)}
+.hero__copy .actions{margin-top:2rem}.hero .btn--line{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.035)}
+.hero__micro{display:flex;max-width:52ch;align-items:flex-start;gap:.75rem;margin-top:1.35rem;color:#B7BEC1;font-size:.88rem;line-height:1.6}
+.hero__micro span{display:grid;width:1.3rem;height:1.3rem;flex:0 0 auto;place-items:center;border:1px solid rgba(255,255,255,.25);border-radius:50%;color:#fff;font:700 .72rem var(--font-head)}
+.hero__vis{position:relative;width:min(100%,33rem);justify-self:center;margin:0;padding:.65rem;border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-lg);background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.025));box-shadow:0 34px 90px rgba(0,0,0,.35)}
+.hero__frame{position:relative;overflow:hidden;aspect-ratio:4/4.8;border-radius:calc(var(--radius-lg) - .5rem);background:#34383A}
+.hero__frame::after{position:absolute;inset:0;border:1px solid rgba(255,255,255,.1);border-radius:inherit;content:'';pointer-events:none}
+.hero__frame img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.82) contrast(1.04)}
+.hero__tag{position:absolute;top:1rem;left:1rem;display:inline-flex;align-items:center;gap:.55rem;padding:.6rem .8rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-pill);color:#fff;background:rgba(18,20,21,.72);backdrop-filter:blur(10px);font:700 .66rem var(--font-head);letter-spacing:.1em;text-transform:uppercase}
+.hero__tag i{width:.42rem;height:.42rem;border-radius:50%;background:var(--red)}
+.hero__vis figcaption{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:.18rem .65rem;padding:.9rem .4rem .25rem;color:#E6E8E8;font:650 .8rem var(--font-head)}
+.hero__caption-mark{grid-row:span 2;width:1.2rem;height:2px;background:var(--red)}.hero__vis figcaption small{grid-column:2;color:#AEB5B8;font:500 .72rem var(--font-body)}
+.strip{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1.8rem;margin:clamp(3.25rem,6vw,5rem) 0 0;padding:1.2rem 0 .6rem;border-top:1px solid rgba(255,255,255,.15);list-style:none;color:#D0D3D4}
+.strip li{font:700 .72rem var(--font-head);letter-spacing:.11em;text-transform:uppercase}.strip__k{margin-right:.25rem;color:#92999C}.strip li:not(.strip__k)::before{display:inline-block;width:.32rem;height:.32rem;margin:0 .65rem .08rem 0;border-radius:50%;background:var(--red);content:''}
+@media(min-width:900px){.hero__in{grid-template-columns:minmax(0,1.08fr) minmax(22rem,.92fr)}.hero__vis{justify-self:end}.hero__frame{aspect-ratio:4/4.55}}
+@media(max-width:520px){.hero{padding-top:3.25rem}.hero h1{max-width:100%;font-size:clamp(2.55rem,10.5vw,3.15rem);line-height:1.02}.hero__vis{width:100%}.strip{gap:.6rem 1rem}.strip__k{width:100%}}
 </style>

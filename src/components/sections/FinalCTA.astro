@@ -1,9 +1,15 @@
 ---
 import { waLink } from '../../data/site';
 ---
-<section class="section section--dark cta"><div class="container">
- <h2>Tem uma necessidade de inox numa unidade comercial?</h2>
- <p class="lead">Envie a aplicação, a localização e as referências disponíveis. Converse com a JS Inox para confirmar se o pedido se enquadra no escopo atendido.</p>
- <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Iniciar conversa comercial</a><a class="btn btn--line" href="#como-funciona">Ver como iniciar</a></div>
+<section class="section section--dark cta"><div class="container cta__in">
+ <div class="cta__content"><p class="eyebrow">Conversa comercial</p><h2>Tem uma necessidade de inox numa unidade comercial?</h2>
+  <p class="lead">Envie a aplicação, a localização e as referências disponíveis. Converse com a JS Inox para confirmar se o pedido se enquadra no escopo atendido.</p>
+  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Iniciar conversa comercial</a><a class="btn btn--line" href="#como-funciona">Ver como iniciar</a></div></div>
+ <div class="cta__signature" aria-hidden="true"><span class="cta__signature-mark">JS</span><span class="cta__signature-line"></span><small>JS INOX<br />Fortaleza — CE</small></div>
 </div></section>
-<style>.cta{background:var(--black)}.cta h2{max-width:18ch;font-size:clamp(2rem,4.6vw,3.5rem)}.cta .lead{font-size:1.1875rem}.cta .btn--line{color:#fff;border-color:#6b7178}.cta .btn--line:hover{border-color:#fff}</style>
+<style>
+.cta{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 85% 50%,rgba(206,5,6,.12),transparent 34%),linear-gradient(130deg,#17191A,#232629 70%,#17191A)}
+.cta::before{position:absolute;z-index:-1;top:-16rem;right:-8rem;width:40rem;height:40rem;border:1px solid rgba(255,255,255,.09);border-radius:50%;box-shadow:0 0 0 3.5rem rgba(255,255,255,.018),0 0 0 7rem rgba(255,255,255,.012);content:''}
+.cta__in{display:grid;align-items:end;gap:3rem}.cta__content{max-width:52rem}.cta h2{max-width:17ch;color:#fff;font-size:clamp(2.35rem,5vw,4.8rem)}.cta .lead{max-width:56ch;font-size:clamp(1rem,1.2vw,1.15rem)}.cta__signature{display:flex;align-items:center;gap:.9rem;color:#AEB5B8}.cta__signature-mark{display:grid;width:3.2rem;height:3.2rem;place-items:center;border:1px solid rgba(255,255,255,.28);border-radius:50%;color:#fff;font:800 .9rem var(--font-head);letter-spacing:-.08em}.cta__signature-line{width:3rem;height:1px;background:var(--red)}.cta__signature small{font:700 .62rem/1.5 var(--font-head);letter-spacing:.13em}
+@media(min-width:900px){.cta__in{grid-template-columns:minmax(0,1fr) auto}.cta__signature{padding-bottom:.35rem}}
+</style>

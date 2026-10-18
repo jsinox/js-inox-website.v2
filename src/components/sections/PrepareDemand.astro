@@ -2,17 +2,18 @@
 import { waLink } from '../../data/site';
 const itens = ['Empresa e nome do contacto', 'Município, unidade e aplicação', 'Quantidade e objetivo do pedido', 'Medidas, desenho, fotos ou requisitos disponíveis', 'Data ou janela desejada, se houver'];
 ---
-<section id="preparar" class="section"><div class="container prep">
- <div><p class="eyebrow">Prepare a conversa</p><h2>Tem uma necessidade de inox numa unidade comercial?</h2>
+<section id="preparar" class="section prep-section"><div class="container prep">
+ <div class="prep__content"><p class="eyebrow">Prepare a conversa</p><h2>Tem uma necessidade de inox numa unidade comercial?</h2>
   <p class="lead">Partilhe a aplicação, a localização e as referências disponíveis. A disponibilidade e o enquadramento do pedido devem ser confirmados com a JS Inox.</p>
   <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Iniciar conversa comercial</a></div>
-  <p class="demo">O botão abre o WhatsApp com uma mensagem inicial. Anexos e dados adicionais podem ser enviados diretamente pelo canal, se necessário.</p></div>
- <ul class="prep__list">{itens.map((i, n) => <li><span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>{i}</li>)}</ul>
+  <p class="demo"><span aria-hidden="true">i</span>O botão abre o WhatsApp com uma mensagem inicial. Anexos e dados adicionais podem ser enviados diretamente pelo canal, se necessário.</p></div>
+ <aside class="prep__aside" aria-label="Informações para preparar"><p class="prep__kicker">Para facilitar a conversa</p><ul class="prep__list">{itens.map((item, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{item}</li>)}</ul></aside>
 </div></section>
 <style>
-.prep{display:grid;gap:2.5rem;align-items:start}@media(min-width:900px){.prep{grid-template-columns:1.1fr .9fr}}
-.prep__list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.prep__list li{display:flex;gap:1rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--line);font:700 1.0625rem var(--font-head);color:var(--black)}
-.prep__list span{color:var(--red);font-size:.85rem}
-.demo{margin-top:1.25rem;padding:1rem 1.25rem;border-left:4px solid var(--red);background:var(--ice);font-size:.95rem}
+.prep-section{background:#fff}.prep{display:grid;gap:2.5rem;align-items:start}.prep__content{max-width:42rem}.prep__content h2{max-width:17ch}.prep__aside{padding:clamp(1.4rem,3vw,2.2rem);border:1px solid rgba(37,41,44,.08);border-radius:var(--radius);background:linear-gradient(145deg,#F7F8F7,#F0F2F1);box-shadow:var(--shadow)}
+.prep__kicker{margin-bottom:1rem;color:var(--red-dark);font:750 .72rem var(--font-head);letter-spacing:.13em;text-transform:uppercase}.prep__list{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.prep__list li{display:flex;min-height:3.8rem;align-items:center;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line);color:var(--text);font:650 .94rem/1.45 var(--font-head)}
+.prep__list span{display:grid;width:1.75rem;height:1.75rem;flex:0 0 auto;place-items:center;border:1px solid rgba(206,5,6,.2);border-radius:50%;color:var(--red-dark);font:750 .65rem var(--font-head)}
+.demo{display:flex;align-items:flex-start;gap:.7rem;margin-top:1.4rem;color:var(--muted);font-size:.85rem;line-height:1.6}.demo span{display:grid;width:1.2rem;height:1.2rem;flex:0 0 auto;place-items:center;border:1px solid var(--steel);border-radius:50%;font:700 .7rem var(--font-head)}
+@media(min-width:900px){.prep{grid-template-columns:minmax(0,1.05fr) minmax(23rem,.75fr);gap:clamp(3rem,8vw,7rem);align-items:center}}
 </style>

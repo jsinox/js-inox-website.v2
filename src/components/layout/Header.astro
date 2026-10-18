@@ -1,39 +1,53 @@
 ---
-import { nav, site, waLink } from '../../data/site';
+import { nav, waLink } from '../../data/site';
 ---
 <header class="hd">
  <div class="container hd__in">
-  <a href="#topo" aria-label="JS INOX — início"><img src="/brand/logo-horizontal.png" width="720" height="270" alt="JS INOX" class="hd__logo" /></a>
-  <button class="hd__toggle" aria-expanded="false" aria-controls="menu"><span>Menu</span></button>
+  <a class="hd__brand" href="#topo" aria-label="JS INOX — início"><img src="/brand/logo-horizontal.png" width="720" height="270" alt="JS INOX" class="hd__logo" /></a>
+  <button class="hd__toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" aria-controls="menu"><span>Menu</span><span class="hd__icon" aria-hidden="true"><i></i><i></i></span></button>
   <nav id="menu" class="hd__nav" aria-label="Principal">
    <ul>{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
-   <a class="btn btn--red" href={waLink} target="_blank" rel="noopener">{site.ctaLabel}</a>
+   <a class="btn btn--red hd__cta" href={waLink} target="_blank" rel="noopener">Iniciar conversa</a>
   </nav>
  </div>
 </header>
 <style>
-.hd{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-.hd__in{display:flex;align-items:center;justify-content:space-between;min-height:5rem;gap:1rem}
-.hd__logo{height:3.75rem;width:auto}
-.hd__toggle{min-height:2.75rem;padding:0 1rem;border:1px solid var(--steel);background:#fff;border-radius:var(--radius);font:700 .95rem var(--font-head);cursor:pointer}
-.hd__nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);padding:1rem var(--gutter) 1.5rem;flex-direction:column;gap:1rem}
-.hd__nav.open{display:flex}
-.hd__nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.hd__nav li a{display:block;padding:.75rem 0;text-decoration:none;font-weight:600;border-bottom:2px solid transparent}
-.hd__nav li a[aria-current="true"]{border-bottom-color:var(--red)}
-@media(min-width:1024px){.hd__toggle{display:none}.hd__nav{display:flex;position:static;flex-direction:row;align-items:center;border:0;padding:0;gap:2rem}
-.hd__nav ul{flex-direction:row;gap:1.75rem}.hd__nav li a{padding:.5rem 0}}
+.hd{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(32,35,38,.08);background:rgba(255,255,255,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.hd__in{display:flex;min-height:5.25rem;align-items:center;justify-content:space-between;gap:1rem}
+.hd__brand{display:flex;align-items:center;flex:0 0 auto}.hd__logo{width:auto;height:3.35rem}
+.hd__toggle{display:inline-flex;min-width:6.5rem;min-height:2.9rem;align-items:center;justify-content:center;gap:.75rem;padding:.65rem 1rem;border:1px solid var(--line);border-radius:var(--radius-pill);color:var(--black);background:#fff;font:750 .9rem var(--font-head);cursor:pointer;transition:border-color var(--motion-fast),background var(--motion-fast)}
+.hd__icon{display:grid;gap:4px}.hd__icon i{display:block;width:15px;height:2px;border-radius:4px;background:currentColor;transition:transform var(--motion-fast) var(--ease)}
+.hd__toggle[aria-expanded="true"] .hd__icon i:first-child{transform:translateY(3px) rotate(45deg)}.hd__toggle[aria-expanded="true"] .hd__icon i:last-child{transform:translateY(-3px) rotate(-45deg)}
+.hd__nav{position:absolute;top:calc(100% + .5rem);left:var(--gutter);right:var(--gutter);display:flex;flex-direction:column;gap:1rem;padding:1rem;border:1px solid rgba(32,35,38,.08);border-radius:var(--radius);background:rgba(255,255,255,.98);box-shadow:var(--shadow-raised);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:opacity var(--motion) var(--ease),transform var(--motion) var(--ease),visibility var(--motion)}
+.hd__nav.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.hd__nav ul{display:flex;flex-direction:column;gap:.2rem;margin:0;padding:0;list-style:none}.hd__nav li a{position:relative;display:flex;min-height:2.85rem;align-items:center;padding:.55rem .7rem;border-radius:var(--radius-sm);color:var(--text);text-decoration:none;font:700 .92rem var(--font-head);transition:color var(--motion-fast),background var(--motion-fast)}
+.hd__nav li a[aria-current="true"]{color:var(--red-dark);background:#FFF5F5}.hd__cta{white-space:nowrap}
+@media (hover:hover){.hd__toggle:hover{border-color:var(--steel);background:var(--ice)}.hd__nav li a:hover{color:var(--red-dark);background:#FFF5F5}}
+@media(min-width:1120px){
+ .hd__in{min-height:5.75rem}.hd__logo{height:3.65rem}.hd__toggle{display:none}
+ .hd__nav{position:static;display:flex;visibility:visible;pointer-events:auto;opacity:1;transform:none;flex-direction:row;align-items:center;gap:clamp(1rem,2vw,2rem);padding:0;border:0;background:transparent;box-shadow:none}
+ .hd__nav ul{flex-direction:row;align-items:center;gap:clamp(.4rem,1.4vw,1.5rem)}
+ .hd__nav li a{min-height:2.75rem;padding:.5rem .35rem;background:transparent!important}
+ .hd__nav li a::after{position:absolute;right:.35rem;bottom:.2rem;left:.35rem;height:2px;background:var(--red);content:'';transform:scaleX(0);transform-origin:left;transition:transform var(--motion) var(--ease)}
+ .hd__nav li a[aria-current="true"]::after,.hd__nav li a:hover::after{transform:scaleX(1)}
+}
 </style>
 <script>
 const btn = document.querySelector<HTMLButtonElement>('.hd__toggle')!;
 const menu = document.getElementById('menu')!;
-const setOpen = (o: boolean) => { menu.classList.toggle('open', o); btn.setAttribute('aria-expanded', String(o)); };
+const setOpen = (open: boolean) => {
+  menu.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', String(open));
+  btn.setAttribute('aria-label', open ? 'Fechar navegação' : 'Abrir navegação');
+};
 btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
-menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) setOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { setOpen(false); btn.focus(); } });
+menu.addEventListener('click', (event) => { if ((event.target as HTMLElement).closest('a')) setOpen(false); });
+document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); } });
 const links = [...menu.querySelectorAll<HTMLAnchorElement>('li a')];
-const io = new IntersectionObserver((es) => es.forEach((en) => {
-  if (en.isIntersecting) links.forEach((l) => l.setAttribute('aria-current', String(l.getAttribute('href') === '#' + en.target.id)));
-}), { rootMargin: '-40% 0px -55% 0px' });
-links.forEach((l) => { const t = document.querySelector(l.getAttribute('href')!); if (t) io.observe(t); });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) links.forEach((link) => link.setAttribute('aria-current', String(link.getAttribute('href') === '#' + entry.target.id)));
+  }), { rootMargin: '-38% 0px -56% 0px' });
+  links.forEach((link) => { const target = document.querySelector(link.getAttribute('href')!); if (target) observer.observe(target); });
+}
 </script>

@@ -1,22 +1,24 @@
 ---
 import { faq } from '../../data/site';
 ---
-<section id="faq" class="section section--ice"><div class="container">
- <div class="head"><p class="eyebrow">Perguntas frequentes</p><h2>Perguntas frequentes</h2></div>
- <div class="faq">{faq.map(([q, a], i) => <div class="faq__i">
-  <h3><button type="button" aria-expanded="false" aria-controls={`f${i}`} id={`b${i}`}>{q}<span aria-hidden="true">+</span></button></h3>
-  <div id={`f${i}`} role="region" aria-labelledby={`b${i}`} hidden><p>{a}</p></div></div>)}</div>
+<section id="faq" class="section section--ice"><div class="container faq-layout">
+ <div class="faq-intro"><p class="eyebrow">Perguntas frequentes</p><h2>O que convém confirmar.</h2><p class="lead">As condições dependem do pedido e precisam de confirmação pela JS Inox.</p></div>
+ <div class="faq">{faq.map(([question, answer], index) => <div class="faq__i">
+  <h3><button type="button" aria-expanded="false" aria-controls={`f${index}`} id={`b${index}`}>{question}<span aria-hidden="true">+</span></button></h3>
+  <div id={`f${index}`} class="faq__answer" role="region" aria-labelledby={`b${index}`} hidden><p>{answer}</p></div></div>)}</div>
 </div></section>
 <style>
-.faq{max-width:50rem;border-top:1px solid var(--line)}.faq__i{border-bottom:1px solid var(--line)}
-.faq button{width:100%;display:flex;justify-content:space-between;gap:1rem;text-align:left;background:none;border:0;padding:1.25rem 0;min-height:3.25rem;font:700 1.0625rem var(--font-head);color:var(--black);cursor:pointer}
-.faq button span{color:var(--red);font-size:1.5rem;line-height:1}.faq p{padding:0 0 1.25rem;color:var(--muted);max-width:60ch}
+.faq-layout{display:grid;gap:2rem}.faq-intro{max-width:27rem}.faq-intro .lead{font-size:1rem}.faq{border-top:1px solid rgba(37,41,44,.15)}.faq__i{border-bottom:1px solid rgba(37,41,44,.15)}
+.faq button{display:flex;width:100%;min-height:4.4rem;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;border:0;color:var(--black);background:transparent;text-align:left;font:750 1rem/1.45 var(--font-head);cursor:pointer;transition:color var(--motion-fast)}
+.faq button span{display:grid;width:2rem;height:2rem;flex:0 0 auto;place-items:center;border:1px solid rgba(206,5,6,.25);border-radius:50%;color:var(--red);font:500 1.35rem/1 var(--font-body);transition:transform var(--motion) var(--ease),background var(--motion-fast),color var(--motion-fast)}
+.faq button[aria-expanded="true"]{color:var(--red-dark)}.faq button[aria-expanded="true"] span{transform:rotate(45deg);color:#fff;background:var(--red);border-color:var(--red)}
+.faq__answer p{max-width:62ch;padding:0 3rem 1.25rem 0;color:var(--muted);font-size:.97rem;line-height:1.72}
+@media(min-width:900px){.faq-layout{grid-template-columns:minmax(15rem,.75fr) minmax(0,1.25fr);gap:clamp(3rem,8vw,8rem)}.faq-intro{position:sticky;top:8rem;align-self:start}}
 </style>
 <script>
-document.querySelectorAll<HTMLButtonElement>('.faq button').forEach((b) => b.addEventListener('click', () => {
-  const open = b.getAttribute('aria-expanded') === 'true';
-  b.setAttribute('aria-expanded', String(!open));
-  document.getElementById(b.getAttribute('aria-controls')!)!.hidden = open;
-  b.querySelector('span')!.textContent = open ? '+' : '−';
+document.querySelectorAll<HTMLButtonElement>('.faq button').forEach((button) => button.addEventListener('click', () => {
+  const open = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', String(!open));
+  document.getElementById(button.getAttribute('aria-controls')!)!.hidden = open;
 }));
 </script>

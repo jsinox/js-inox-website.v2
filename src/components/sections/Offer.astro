@@ -1,20 +1,22 @@
 ---
 import { waLink } from '../../data/site';
 ---
-<section id="avaliacao-de-demanda" class="section section--dark"><div class="container">
- <div class="head"><p class="eyebrow" style="color:#fff">Informações para o pedido</p><h2>O que ajuda a iniciar a conversa.</h2>
+<section id="avaliacao-de-demanda" class="section section--dark offer-section"><div class="container">
+ <div class="head"><p class="eyebrow">Informações para o pedido</p><h2>O que ajuda a iniciar a conversa.</h2>
   <p class="lead">Partilhe apenas os dados disponíveis. A equipa poderá indicar se são necessárias informações adicionais para verificar o enquadramento.</p></div>
  <dl class="offer">
-  <div><dt>Empresa e contacto</dt><dd>Nome da empresa e do contacto responsável; telefone ou e-mail profissional, se pertinente.</dd></div>
-  <div><dt>Local e aplicação</dt><dd>Município, unidade e área em que o item será utilizado.</dd></div>
-  <div><dt>Quantidade e referências</dt><dd>Quantidade aproximada e medidas, desenho, fotos ou requisitos, se disponíveis.</dd></div>
-  <div><dt>Data desejada</dt><dd>Indique a janela pretendida, sem pressupor disponibilidade ou prazo confirmado.</dd></div>
+  <div class="offer__item"><dt>Empresa e contacto</dt><dd>Nome da empresa e do contacto responsável; telefone ou e-mail profissional, se pertinente.</dd></div>
+  <div class="offer__item"><dt>Local e aplicação</dt><dd>Município, unidade e área em que o item será utilizado.</dd></div>
+  <div class="offer__item"><dt>Quantidade e referências</dt><dd>Quantidade aproximada e medidas, desenho, fotos ou requisitos, se disponíveis.</dd></div>
+  <div class="offer__item"><dt>Data desejada</dt><dd>Indique a janela pretendida, sem pressupor disponibilidade ou prazo confirmado.</dd></div>
  </dl>
  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Enviar os dados do projeto</a></div>
  <p class="limit">O envio de uma mensagem não garante orçamento, visita, prazo, aceitação ou execução.</p>
 </div></section>
 <style>
-.offer{display:grid;gap:1px;background:#454a50;border:1px solid #454a50;margin:0}
-.offer div{background:var(--graphite);padding:1.5rem}.offer dt{font:700 1.125rem var(--font-head);color:#fff;margin-bottom:.4rem}.offer dd{margin:0;color:#C9CDD1}.limit{margin-top:1.25rem;color:#C9CDD1;font-size:.95rem}
-@media(min-width:768px){.offer{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.offer{grid-template-columns:repeat(4,1fr)}}
+.offer-section{position:relative;isolation:isolate;overflow:hidden}.offer-section::before{position:absolute;z-index:-1;top:-12rem;right:-8rem;width:36rem;height:36rem;border:1px solid rgba(255,255,255,.08);border-radius:50%;box-shadow:0 0 0 3rem rgba(255,255,255,.018),0 0 0 6rem rgba(255,255,255,.012);content:''}
+.offer{display:grid;gap:.8rem;margin:0}.offer__item{position:relative;min-height:12rem;padding:1.6rem 1.5rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));backdrop-filter:blur(8px)}
+.offer__item::before{position:absolute;top:-1px;left:1.5rem;width:2.4rem;height:2px;background:var(--red);content:''}.offer dt{margin-bottom:.65rem;color:#fff;font:750 1.05rem var(--font-head);letter-spacing:-.02em}.offer dd{margin:0;color:#C9CDD1;font-size:.94rem;line-height:1.65}.limit{margin-top:1.2rem;color:#AEB5B8;font-size:.85rem}
+@media(min-width:620px){.offer{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}}
+@media(min-width:1040px){.offer{grid-template-columns:repeat(4,minmax(0,1fr))}.offer__item{min-height:14rem}}
 </style>
