@@ -1,4 +1,4 @@
-export const site = { name: 'JS INOX', city: 'Fortaleza — CE', ctaLabel: 'Conversar sobre uma necessidade' };
+export const site = { name: 'JS INOX', city: 'Fortaleza — CE', ctaLabel: 'Conversar sobre uma necessidade', locationUrl: 'https://share.google/u4KL8rQyYhRSI8BYj' };
 export const nav = [
   { label: 'Sobre a necessidade', href: '#sobre' },
   { label: 'Aplicações', href: '#solucoes' },
