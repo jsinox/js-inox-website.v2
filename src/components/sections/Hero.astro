@@ -3,17 +3,18 @@ import { waLink, segments } from '../../data/site';
 ---
 <section id="topo" class="hero"><div class="container hero__in">
  <div>
-  <p class="eyebrow">Soluções em aço inox para operações comerciais</p>
-  <h1>Seu projeto em inox começa com um escopo bem entendido.</h1>
-  <p class="lead">Apresente a necessidade da sua empresa para uma avaliação inicial da aplicação, do contexto operacional e dos próximos passos.</p>
-  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Solicitar avaliação da demanda</a><a class="btn btn--line" href="#como-funciona">Entenda como funciona</a></div>
+  <p class="eyebrow">JS Inox · conversa comercial B2B</p>
+  <h1>Inox para espaços comerciais, começando pelo escopo certo.</h1>
+  <p class="lead">Conte-nos o que a sua operação precisa. Fale com a JS Inox para confirmar se a aplicação, a categoria e o local estão dentro do escopo atendido.</p>
+  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Conversar sobre um projeto</a><a class="btn btn--line" href="#preparar">Ver informações para o pedido</a></div>
+  <p class="hero__micro">Para iniciar a conversa, tenha em mãos a aplicação, município/unidade, quantidade e, se possível, medidas, desenho ou fotos de referência.</p>
  </div>
- <figure class="hero__vis"><img src="/images/expositor-escalonado.webp" width="900" height="1200" alt="Expositor escalonado em aço inox" fetchpriority="high" /></figure>
+ <figure class="hero__vis"><img src="/images/expositor-escalonado.webp" width="900" height="1200" alt="Imagem de referência de expositor escalonado em aço inox" fetchpriority="high" /></figure>
 </div>
-<div class="container"><ul class="strip" aria-label="Segmentos prioritários"><li class="strip__k">Foco comercial</li>{segments.map((s) => <li>{s.title}</li>)}</ul></div></section>
+<div class="container"><ul class="strip" aria-label="Públicos prioritários"><li class="strip__k">Foco comercial</li>{segments.map((s) => <li>{s.title}</li>)}</ul></div></section>
 <style>
 .hero{background:var(--black) repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 96px);color:#fff;padding-top:clamp(2.5rem,7vw,5.5rem)}
-.hero h1{color:#fff;max-width:14ch;font-size:clamp(2.5rem,4.6vw,4.25rem)}.hero .btn--line{color:#fff;border-color:#6b7178}.hero .btn--line:hover{border-color:#fff}.hero .lead{color:#C9CDD1;font-size:1.1875rem}
+.hero h1{color:#fff;max-width:14ch;font-size:clamp(2.5rem,4.6vw,4.25rem)}.hero .btn--line{color:#fff;border-color:#6b7178}.hero .btn--line:hover{border-color:#fff}.hero .lead{color:#C9CDD1;font-size:1.1875rem}.hero__micro{color:#C9CDD1;font-size:.9rem;max-width:58ch;margin-top:1.25rem}
 .hero__in{display:grid;gap:2.5rem;align-items:center}
 .hero__vis{margin:0;position:relative;max-width:26rem;width:100%;justify-self:center;aspect-ratio:4/5;clip-path:polygon(0 0,calc(100% - 40px) 0,100% 40px,100% 100%,0 100%);border:1px solid #3a3f45}
 .hero__vis img{width:100%;height:100%;object-fit:cover}

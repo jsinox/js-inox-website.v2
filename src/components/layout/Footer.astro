@@ -1,15 +1,14 @@
 ---
-import { nav, site, whatsapp } from '../../data/site';
+import { nav, site } from '../../data/site';
 ---
 <footer class="ft"><div class="container ft__in">
  <div><span class="ft__plate"><img src="/brand/logo-principal.png" width="640" height="640" alt="JS INOX e cozinhas" class="ft__logo" loading="lazy" /></span>
-  <p>Soluções em aço inox para operações comerciais. {site.city}.</p></div>
+  <p>JS INOX · {site.city}</p></div>
  <nav aria-label="Rodapé"><ul>{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul></nav>
- <ul class="ft__pend"><li>CNPJ: [pendente]</li><li>WhatsApp: {whatsapp.display}</li><li>Política de privacidade: [pendente]</li></ul>
 </div></footer>
 <style>
 .ft{background:var(--black);color:#C9CDD1;border-top:4px solid var(--red);padding-block:3.5rem}.ft__plate{display:inline-block;background:#fff;padding:.75rem;margin-bottom:1rem}
 .ft__in{display:grid;gap:2rem}.ft__logo{width:7.5rem;height:auto}
-.ft p,.ft__pend{color:#9aa0a6;font-size:.95rem}.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}.ft a{text-decoration:none;font-weight:600;color:#fff}.ft a:hover{text-decoration:underline}
-@media(min-width:768px){.ft__in{grid-template-columns:2fr 1fr 1fr}}
+.ft p{color:#9aa0a6;font-size:.95rem}.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}.ft a{text-decoration:none;font-weight:600;color:#fff}.ft a:hover{text-decoration:underline}
+@media(min-width:768px){.ft__in{grid-template-columns:2fr 1fr}}
 </style>

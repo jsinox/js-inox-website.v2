@@ -2,8 +2,8 @@
 import { gallery, projects } from '../../data/site';
 ---
 <section id="projetos" class="section"><div class="container">
- <div class="head"><p class="eyebrow">Projetos e comprovações</p><h2>Exemplos de peças em aço inox.</h2>
-  <p class="lead">As imagens ilustram tipos de peça em inox. Elas não indicam clientes, resultados ou escopos específicos. Cases autorizados entram aqui depois de aprovados.</p></div>
+ <div class="head"><p class="eyebrow">Imagens de referência</p><h2>Peças em aço inox.</h2>
+  <p class="lead">As imagens ilustram tipos de peça. Não indicam cliente, local, resultado ou escopo executado pela JS Inox. A publicação dos ativos depende da validação de autoria e autorização.</p></div>
  <ul class="gal">{gallery.map((g) => <li><img src={g.src} width={g.width} height={g.height} alt={g.alt} loading="lazy" /></li>)}</ul>
  {projects.length > 0 && <div class="grid g3" style="margin-top:1.5rem">{projects.map((p) => <article class="card"><h3>{p.title}</h3><p>{p.text}</p></article>)}</div>}
 </div></section>

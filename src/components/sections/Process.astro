@@ -2,7 +2,8 @@
 import { steps } from '../../data/site';
 ---
 <section id="como-funciona" class="section"><div class="container">
- <div class="head"><p class="eyebrow">Processo de avaliação</p><h2>Da necessidade ao próximo passo.</h2></div>
+ <div class="head"><p class="eyebrow">Como iniciar</p><h2>Da necessidade ao próximo passo.</h2>
+  <p class="lead">Partilhe o que já sabe sobre a aplicação. A categoria, o local e as condições de atendimento precisam de ser confirmados antes de qualquer proposta.</p></div>
  <ol class="steps">{steps.map(([t, d], i) => <li><span class="n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{d}</p></li>)}</ol>
 </div></section>
 <style>

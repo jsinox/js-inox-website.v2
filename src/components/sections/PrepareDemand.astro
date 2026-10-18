@@ -1,12 +1,12 @@
 ---
 import { waLink } from '../../data/site';
-const itens = ['Nome da empresa', 'Unidade ou local de aplicação', 'Necessidade e aplicação', 'Dados técnicos disponíveis (medidas, requisitos, referências)'];
+const itens = ['Empresa e nome do contacto', 'Município, unidade e aplicação', 'Quantidade e objetivo do pedido', 'Medidas, desenho, fotos ou requisitos disponíveis', 'Data ou janela desejada, se houver'];
 ---
 <section id="preparar" class="section"><div class="container prep">
- <div><p class="eyebrow">Prepare sua demanda</p><h2>Conte sobre a necessidade da sua operação.</h2>
-  <p class="lead">Ao clicar, o WhatsApp abre com uma mensagem inicial que você pode completar com as informações abaixo.</p>
-  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Enviar demanda pelo WhatsApp</a></div>
-  <p class="demo">O envio da demanda não garante orçamento, visita, prazo, aceitação ou execução.</p></div>
+ <div><p class="eyebrow">Prepare a conversa</p><h2>Tem uma necessidade de inox numa unidade comercial?</h2>
+  <p class="lead">Partilhe a aplicação, a localização e as referências disponíveis. A disponibilidade e o enquadramento do pedido devem ser confirmados com a JS Inox.</p>
+  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Iniciar conversa comercial</a></div>
+  <p class="demo">O botão abre o WhatsApp com uma mensagem inicial. Anexos e dados adicionais podem ser enviados diretamente pelo canal, se necessário.</p></div>
  <ul class="prep__list">{itens.map((i, n) => <li><span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>{i}</li>)}</ul>
 </div></section>
 <style>
