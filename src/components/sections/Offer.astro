@@ -1,0 +1,18 @@
+---
+import { waLink } from '../../data/site';
+---
+<section id="avaliacao-de-demanda" class="section section--dark"><div class="container">
+ <div class="head"><p class="eyebrow" style="color:#fff">Oferta</p><h2>Avaliação de Demanda em Inox para Operações Comerciais.</h2></div>
+ <dl class="offer">
+  <div><dt>Para quem</dt><dd>Empresas com necessidades relacionadas a soluções em aço inox.</dd></div>
+  <div><dt>O que informar</dt><dd>Empresa, unidade ou local de aplicação, necessidade e dados técnicos disponíveis.</dd></div>
+  <div><dt>O que esperar</dt><dd>Uma análise inicial para orientar a continuidade, sujeita à confirmação operacional.</dd></div>
+  <div><dt>Limites</dt><dd>O envio da demanda não garante orçamento, visita, prazo, aceitação ou execução.</dd></div>
+ </dl>
+ <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Solicitar avaliação da demanda</a></div>
+</div></section>
+<style>
+.offer{display:grid;gap:1px;background:#454a50;border:1px solid #454a50;margin:0}
+.offer div{background:var(--graphite);padding:1.5rem}.offer dt{font:700 1.125rem var(--font-head);color:#fff;margin-bottom:.4rem}.offer dd{margin:0;color:#C9CDD1}
+@media(min-width:768px){.offer{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.offer{grid-template-columns:repeat(4,1fr)}}
+</style>

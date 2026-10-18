@@ -1,0 +1,22 @@
+---
+import { faq } from '../../data/site';
+---
+<section id="faq" class="section section--ice"><div class="container">
+ <div class="head"><p class="eyebrow">Perguntas frequentes</p><h2>Perguntas frequentes</h2></div>
+ <div class="faq">{faq.map(([q, a], i) => <div class="faq__i">
+  <h3><button type="button" aria-expanded="false" aria-controls={`f${i}`} id={`b${i}`}>{q}<span aria-hidden="true">+</span></button></h3>
+  <div id={`f${i}`} role="region" aria-labelledby={`b${i}`} hidden><p>{a}</p></div></div>)}</div>
+</div></section>
+<style>
+.faq{max-width:50rem;border-top:1px solid var(--line)}.faq__i{border-bottom:1px solid var(--line)}
+.faq button{width:100%;display:flex;justify-content:space-between;gap:1rem;text-align:left;background:none;border:0;padding:1.25rem 0;min-height:3.25rem;font:700 1.0625rem var(--font-head);color:var(--black);cursor:pointer}
+.faq button span{color:var(--red);font-size:1.5rem;line-height:1}.faq p{padding:0 0 1.25rem;color:var(--muted);max-width:60ch}
+</style>
+<script>
+document.querySelectorAll<HTMLButtonElement>('.faq button').forEach((b) => b.addEventListener('click', () => {
+  const open = b.getAttribute('aria-expanded') === 'true';
+  b.setAttribute('aria-expanded', String(!open));
+  document.getElementById(b.getAttribute('aria-controls')!)!.hidden = open;
+  b.querySelector('span')!.textContent = open ? '+' : '−';
+}));
+</script>

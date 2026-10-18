@@ -1,0 +1,39 @@
+---
+import { nav, site, waLink } from '../../data/site';
+---
+<header class="hd">
+ <div class="container hd__in">
+  <a href="#topo" aria-label="JS INOX — início"><img src="/brand/logo-horizontal.png" width="720" height="270" alt="JS INOX" class="hd__logo" /></a>
+  <button class="hd__toggle" aria-expanded="false" aria-controls="menu"><span>Menu</span></button>
+  <nav id="menu" class="hd__nav" aria-label="Principal">
+   <ul>{nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
+   <a class="btn btn--red" href={waLink} target="_blank" rel="noopener">{site.ctaLabel}</a>
+  </nav>
+ </div>
+</header>
+<style>
+.hd{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.hd__in{display:flex;align-items:center;justify-content:space-between;min-height:5rem;gap:1rem}
+.hd__logo{height:3.75rem;width:auto}
+.hd__toggle{min-height:2.75rem;padding:0 1rem;border:1px solid var(--steel);background:#fff;border-radius:var(--radius);font:700 .95rem var(--font-head);cursor:pointer}
+.hd__nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);padding:1rem var(--gutter) 1.5rem;flex-direction:column;gap:1rem}
+.hd__nav.open{display:flex}
+.hd__nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.hd__nav li a{display:block;padding:.75rem 0;text-decoration:none;font-weight:600;border-bottom:2px solid transparent}
+.hd__nav li a[aria-current="true"]{border-bottom-color:var(--red)}
+@media(min-width:1024px){.hd__toggle{display:none}.hd__nav{display:flex;position:static;flex-direction:row;align-items:center;border:0;padding:0;gap:2rem}
+.hd__nav ul{flex-direction:row;gap:1.75rem}.hd__nav li a{padding:.5rem 0}}
+</style>
+<script>
+const btn = document.querySelector<HTMLButtonElement>('.hd__toggle')!;
+const menu = document.getElementById('menu')!;
+const setOpen = (o: boolean) => { menu.classList.toggle('open', o); btn.setAttribute('aria-expanded', String(o)); };
+btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) setOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { setOpen(false); btn.focus(); } });
+const links = [...menu.querySelectorAll<HTMLAnchorElement>('li a')];
+const io = new IntersectionObserver((es) => es.forEach((en) => {
+  if (en.isIntersecting) links.forEach((l) => l.setAttribute('aria-current', String(l.getAttribute('href') === '#' + en.target.id)));
+}), { rootMargin: '-40% 0px -55% 0px' });
+links.forEach((l) => { const t = document.querySelector(l.getAttribute('href')!); if (t) io.observe(t); });
+</script>

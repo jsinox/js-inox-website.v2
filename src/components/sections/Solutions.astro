@@ -1,0 +1,9 @@
+---
+import { solutions, solutionsNotice, waLink } from '../../data/site';
+---
+<section id="solucoes" class="section section--ice"><div class="container">
+ <div class="head"><p class="eyebrow">Soluções</p><h2>Soluções em aço inox orientadas à sua necessidade.</h2></div>
+ <div class="grid g3">{solutions.map((s) => <article class="card card--cut"><img class="ph" src={s.image.src} width={s.image.width} height={s.image.height} alt={s.image.alt} loading="lazy" /><h3>{s.title}</h3><p>{s.text}</p><a class="link" href={waLink} target="_blank" rel="noopener">Apresentar uma demanda</a></article>)}</div>
+ <p class="note">{solutionsNotice}</p>
+</div></section>
+<style>.ph{width:calc(100% + 3.5rem);margin:-1.75rem -1.75rem .5rem;max-width:none;aspect-ratio:4/3;object-fit:cover;background:var(--ice)}.link{margin-top:auto;font-weight:700;color:var(--red-dark);padding-top:.5rem}.note{margin-top:1.5rem;color:var(--muted);font-size:.95rem;max-width:62ch}</style>

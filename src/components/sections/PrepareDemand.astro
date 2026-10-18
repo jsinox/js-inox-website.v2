@@ -1,0 +1,18 @@
+---
+import { waLink } from '../../data/site';
+const itens = ['Nome da empresa', 'Unidade ou local de aplicação', 'Necessidade e aplicação', 'Dados técnicos disponíveis (medidas, requisitos, referências)'];
+---
+<section id="preparar" class="section"><div class="container prep">
+ <div><p class="eyebrow">Prepare sua demanda</p><h2>Conte sobre a necessidade da sua operação.</h2>
+  <p class="lead">Ao clicar, o WhatsApp abre com uma mensagem inicial que você pode completar com as informações abaixo.</p>
+  <div class="actions"><a class="btn btn--red" href={waLink} target="_blank" rel="noopener">Enviar demanda pelo WhatsApp</a></div>
+  <p class="demo">O envio da demanda não garante orçamento, visita, prazo, aceitação ou execução.</p></div>
+ <ul class="prep__list">{itens.map((i, n) => <li><span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>{i}</li>)}</ul>
+</div></section>
+<style>
+.prep{display:grid;gap:2.5rem;align-items:start}@media(min-width:900px){.prep{grid-template-columns:1.1fr .9fr}}
+.prep__list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.prep__list li{display:flex;gap:1rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--line);font:700 1.0625rem var(--font-head);color:var(--black)}
+.prep__list span{color:var(--red);font-size:.85rem}
+.demo{margin-top:1.25rem;padding:1rem 1.25rem;border-left:4px solid var(--red);background:var(--ice);font-size:.95rem}
+</style>

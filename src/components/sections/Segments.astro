@@ -1,0 +1,15 @@
+---
+import { segments } from '../../data/site';
+const P: Record<string, string> = {
+  store: 'M3 9l1.5-5h15L21 9M4 9v11h16V9M3 9h18M9 20v-6h6v6',
+  boxes: 'M3 8l9-5 9 5v8l-9 5-9-5zM3 8l9 5 9-5M12 13v8',
+  building: 'M5 21V4h9v17M14 9h5v12M3 21h18M8 8h3M8 12h3M8 16h3',
+  network: 'M12 4v6M12 10H5v4M12 10h7v4M3 14h4v5H3zM17 14h4v5h-4zM10 3h4v3h-4z',
+};
+---
+<section id="segmentos" class="section"><div class="container">
+ <div class="head"><p class="eyebrow">Segmentos prioritários</p><h2>Soluções em inox para diferentes contextos comerciais.</h2>
+  <p class="lead">Estes são os públicos em que a JS INOX concentra seu foco comercial.</p></div>
+ <div class="grid g4">{segments.map((s) => <article class="card"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d={P[s.icon]} /></svg><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
+</div></section>
+<style>#segmentos .grid{counter-reset:s}#segmentos .card{counter-increment:s}#segmentos .card::before{content:counter(s,decimal-leading-zero);font:800 .8125rem var(--font-head);letter-spacing:.08em;color:var(--red-dark)}</style>
